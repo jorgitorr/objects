@@ -28,27 +28,40 @@ public class Mano {
     }
     
     public void mostrarCarta(int numero){
-        if(numero==1){
-            System.out.println(carta1);
-        }else if(numero == 2){
-            System.out.println(carta2);
-        }else if(numero == 3){
-            System.out.println(carta3);
+        
+        switch(numero){
+            case 1:
+                carta1.mostrarCarta();
+                break;
+            case 2:
+                carta2.mostrarCarta();
+                break;
+            case 3:
+                carta3.mostrarCarta();
+                break;
+            default:
+                System.out.println("Carta no existente");
+                break;
         }
     }
     
     public void setCarta(int numero){
-        if(numero==1){
-            carta1.setNumero();
-            carta1.setPalo();
-        }else if(numero==2){
-            carta2.setNumero();
-            carta2.setPalo();
-        }else if(numero==3){
-            carta3.setNumero();
-            carta3.setPalo();
-        }else{
-            System.out.println("La carta no existe");
+        switch(numero){
+            case 1:
+                carta1.setNumero();
+                carta1.setPalo();
+                break;
+            case 2:
+                carta2.setNumero();
+                carta2.setPalo();
+                break;
+            case 3:
+                carta3.setNumero();
+                carta3.setPalo();
+                break;
+            default:
+                System.out.println("La carta no existe");
+                break;
         }
     }
 
@@ -58,9 +71,10 @@ public class Mano {
     }
     
     public void pedirMano(){
-        setCarta(1);
-        setCarta(2);
-        setCarta(3);
+        for(int i=1; i<4; i++){
+            System.out.println("-------CARTA " + i + "------");
+            setCarta(i);
+        }
     }
     
     public void mostrarMano(){

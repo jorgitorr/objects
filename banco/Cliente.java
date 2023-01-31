@@ -15,14 +15,14 @@ public class Cliente {
     private int sueldo;
     private Cuenta cuenta;
 
-    public Cliente(String dni, int sueldo) {
+    public Cliente(String dni, int sueldo, Cuenta cuenta) {
         this.dni = dni;
         this.sueldo = sueldo;
-        this.cuenta = new Cuenta(0,0,Integer.parseInt(dni));
+        this.cuenta = new Cuenta(cuenta.getNumCuenta(),cuenta.getSaldo(),Integer.valueOf(dni));
     }
 
     public Cliente() {
-        this("",0);
+        this("",0, new Cuenta());
     }
 
     public String getDni() {
@@ -63,7 +63,7 @@ public class Cliente {
     public void sacar_dinero(String dni, int contrasenia){
         Scanner sc = new Scanner(System.in);
         int retirar;
-        if(contrasenia==cuenta.getContrasenia()){
+        if(cuenta.validar_contrasenia(contrasenia)){
             System.out.println("¿Cuanto deseas retirar?");
             retirar = sc.nextInt();
             if(retirar<=sueldo){

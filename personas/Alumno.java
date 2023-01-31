@@ -4,7 +4,6 @@
  */
 package objetosEjercicio_II.personas;
 
-import objetosEjercicio_I.*;
 
 /**
  *
@@ -18,16 +17,16 @@ public class Alumno {
     private int nota2T;
     private int nota3T;
 
-    public Alumno(String dni, int edad, int nota1T, int nota2T, int nota3T) {
+    public Alumno(String dni, int edad) {
         this.dni = dni;
         this.edad = edad;
-        this.nota1T = nota1T;
-        this.nota2T = nota2T;
-        this.nota3T = nota3T;
+        this.nota1T = -1;
+        this.nota2T = -1;
+        this.nota3T = -1;
     }
 
     public Alumno() {
-        this("",0,0,0,0);
+        this("",0);
     }
 
     public String getDni() {
@@ -77,7 +76,7 @@ public class Alumno {
     
     public int notaFinal(){
         int notaFinal = -1;
-        if(nota1T!=0 && nota2T!=0 && nota3T!=0){
+        if(nota1T!=-1 && nota2T!=-1 && nota3T!=-1){
            notaFinal = (nota1T+nota2T+nota3T)/3;
         }
         return notaFinal;
@@ -101,12 +100,8 @@ public class Alumno {
         a1.setNota2T(5);
         a1.setNota3T(5);
         
-        Alumno a2 = new Alumno("4645646ER", 23, 6, 5, 9);
-        System.out.println(a1);
-        System.out.println(a2);
         
         a1.informeAlumno();
-        a2.informeAlumno();
         
     }
     

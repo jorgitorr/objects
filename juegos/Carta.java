@@ -4,7 +4,6 @@
  */
 package objetosEjercicio_II.juegos;
 
-import objetosEjercicio_I.*;
 import java.util.Scanner;
 
 /**
@@ -21,6 +20,8 @@ public class Carta {
     }
 
     public Carta() {
+        numero = 0;
+        palo = '\0';
     }
 
     public int getNumero() {
@@ -57,6 +58,7 @@ public class Carta {
     }
 
     public void mostrarCarta(){ 
+        //en vez de imprimirlo directamente guardarlo en un string e imprimirlo después
         System.out.print("es el ");
         switch(numero){
             case 1:

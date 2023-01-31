@@ -60,29 +60,18 @@ public class Cuenta {
      * @param dinero 
      */
     protected void modificar_saldo(double dinero){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("¿Deseas ingresar o retirar el dinero?(ingresar/retirar)");
-        String accion = sc.nextLine();
-        if(accion.equalsIgnoreCase("ingresar")){
-            saldo += dinero;
-        }else if(accion.equalsIgnoreCase("retirar")){
-            saldo -= dinero;
-        }else{
-            System.out.println("No se conoce la operación");
-        }
+        this.saldo += dinero;
     }
     
     private int generar_contrasenia(){
-        Random rnd = new Random();
-        contrasenia = rnd.nextInt(9999)+1000;
-        return contrasenia;
+        return new Random().nextInt(9000)+1000;
     }
     
     public void modificar_cotrasenia(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce la contraseña actual: ");
         int nContrasenia = sc.nextInt();
-        if(nContrasenia != contrasenia){
+        if(!validar_contrasenia(nContrasenia)){
             System.out.println("Error. Las contrasenias no son iguales");
         }else{
             System.out.println("Introduce la nueva contrasenia: ");
@@ -101,7 +90,7 @@ public class Cuenta {
     }
     
     public void mostrar_datos(int contrasenia){
-        if(this.contrasenia == contrasenia){
+        if(validar_contrasenia(contrasenia)){
             System.out.println("numero cuenta: " + numCuenta);
             System.out.println("saldo: " + saldo);
         }

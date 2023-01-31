@@ -14,7 +14,8 @@ public class Cajero {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String seleccion, respuesta;
-        Cliente cliente1 = new Cliente("987654", 1200);
+        Cuenta cuenta2 = new Cuenta(123456789,1523,9856);
+        Cliente cliente1 = new Cliente("987654", 1200,cuenta2);
         Cuenta cuenta1 = new Cuenta(123456789,1500,987654);
         //introduce la cuenta1 en el cliente1
         cliente1.setCuenta(cuenta1);

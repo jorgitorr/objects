@@ -4,7 +4,6 @@
  */
 package objetosEjercicio_II.vehículos;
 
-import objetosEjercicio_I.*;
 
 /**
  *
